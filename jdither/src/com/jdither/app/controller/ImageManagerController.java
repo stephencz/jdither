@@ -34,6 +34,11 @@ public class ImageManagerController {
 		
 	}
 
+	/**
+	 * Handles when the user presses the Add button by loading the images
+	 * selected into the model and reflecting those changes to the model in
+	 * the view.
+	 */
 	private void addAddImageButtonPressedEvent() {
 		this.toolBarView.getAddButton().setOnAction(new EventHandler<ActionEvent>() {
 
@@ -48,7 +53,6 @@ public class ImageManagerController {
 			
 		});
 	}
-	
 	
 	public ImageManagerModel getModel() {
 		return model;

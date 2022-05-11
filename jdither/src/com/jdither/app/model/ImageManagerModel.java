@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map.Entry;
+
+import com.jdither.app.view.ImageItemView;
 
 /**
  * The {@link ImageManagerModel} class represents the data of
@@ -14,19 +17,19 @@ import java.util.List;
  */
 public class ImageManagerModel {
 
-	/** A HashMap of File objects representing the images being used by the application. */
-	private HashMap<String, File> imageMap;
+	/** A HashMap of {@link File} objects representing the images being used by the application. */
+	private HashMap<String, ImageOptions> imageFileMap;
 	
 	/**
 	 * Creates a new {@link ImageManagerModel}.
 	 */
 	public ImageManagerModel() {
-		this.imageMap = new HashMap<String, File>();
+		this.imageFileMap = new HashMap<String, ImageOptions>();
 	}
 	
 	/** @return {@link HashMap} */
-	public HashMap<String, File> getImageMap() {
-		return this.imageMap;
+	public HashMap<String, ImageOptions> getImageMap() {
+		return this.imageFileMap;
 	}
 	
 	/**
@@ -35,13 +38,13 @@ public class ImageManagerModel {
 	 */
 	public void setImageMap(List<File> files) {
 		for(File file : files) {
-			if(imageMap.isEmpty()) {
-				this.imageMap.put(file.getName(), file);
+			if(imageFileMap.isEmpty()) {
+				this.imageFileMap.put(file.getName(), new ImageOptions(file));
 			
 			} else {
 			
-				if(!this.imageMap.containsKey(file.getName())) {
-					this.imageMap.put(file.getName(), file);
+				if(!this.imageFileMap.containsKey(file.getName())) {
+					this.imageFileMap.put(file.getName(), new ImageOptions(file));
 					
 				}
 				
@@ -54,12 +57,11 @@ public class ImageManagerModel {
 	 * exist.
 	 */
 	public void pruneImageMap() {
-		for(String key : this.imageMap.keySet()) {
-			if(!this.imageMap.get(key).exists()) {
-				this.imageMap.remove(key);
+		for(String key : this.imageFileMap.keySet()) {
+			if(!this.imageFileMap.get(key).getFile().exists()) {
+				this.imageFileMap.remove(key);
 			}
 		}
 	}
-	
 	
 }
