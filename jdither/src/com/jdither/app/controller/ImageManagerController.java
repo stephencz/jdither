@@ -42,7 +42,8 @@ public class ImageManagerController {
 				FileChooser fileChooser = new FileChooser();
 				fileChooser.setTitle("Open Image/Images");
 				List<File> files = fileChooser.showOpenMultipleDialog(stage);
-				
+				model.setImageMap(files);
+				imageManagerView.updateImageManagerItems(model.getImageMap());
 			}
 			
 		});
