@@ -1,12 +1,11 @@
 package com.jdither.app.view;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.jdither.app.model.ImageOptions;
 
+import javafx.geometry.Insets;
 import javafx.scene.layout.VBox;
 
 public class ImageManagerView extends VBox {
@@ -15,6 +14,11 @@ public class ImageManagerView extends VBox {
 	
 	public ImageManagerView() {
 		this.imageItemMap = new HashMap<String, ImageItemView>();
+		
+		this.getStyleClass().add("image-manager-view");
+		
+		this.setSpacing(10);
+		this.setPadding(new Insets(20, 0, 0, 0));
 	}
 
 	public void updateImageManagerItems(HashMap<String, ImageOptions> imageMap) {
@@ -38,6 +42,10 @@ public class ImageManagerView extends VBox {
 			this.getChildren().add(imageItem);
 		}
 		
+	}
+
+	public HashMap<String, ImageItemView> getImageItemMap() {
+		return imageItemMap;
 	}
 
 }

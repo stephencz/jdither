@@ -17,6 +17,8 @@ import com.jdither.app.view.ImageItemView;
  */
 public class ImageManagerModel {
 
+	private ArrayList<String> selected;
+	
 	/** A HashMap of {@link File} objects representing the images being used by the application. */
 	private HashMap<String, ImageOptions> imageFileMap;
 	

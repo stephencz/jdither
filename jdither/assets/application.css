@@ -1,0 +1,26 @@
+.primary-toolbar-view
+{
+	-fx-background-color: #232323;
+}
+
+.toolbar-button
+{
+	-fx-background-color: #e8e8e8;
+	-fx-text-fill: #232323;
+}
+
+.toolbar-button:hover
+{
+	-fx-background-color: #ababab;
+}
+
+.image-item-view
+{
+	-fx-hgap: 20px;
+}
+
+.image-manager-view
+{
+	-fx-background-color: #343434;
+	-fx-text-fill: #fff;
+}
